@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build: Pricer_v3/
+    ports:
+      - "8080:80"
+    restart: on-failure
+  flask:
+    build: Pricer_NN/
+    ports:
+      - "5050:5050"
+    restart: on-failure
+  chrome:
+    image: "selenium/standalone-chrome"
+    ports:
+      - "4444:4444"
+    environment:
+      - SCREEN_WIDTH=1280
+      - SCREEN_HEIGHT=2000
+    volumes:
+      - /dev/shm:/dev/shm
+    restart: on-failure

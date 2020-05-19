@@ -1,0 +1,86 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/evgenijlasenko/RiderProjects/Pricer_v3/Pricer_v3/Pricer_v3.csproj",
+    "projectName": "Pricer_v3",
+    "projectPath": "/Users/evgenijlasenko/RiderProjects/Pricer_v3/Pricer_v3/Pricer_v3.csproj",
+    "outputPath": "/Users/evgenijlasenko/RiderProjects/Pricer_v3/Pricer_v3/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp3.1"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp3.1": {
+      "dependencies": {
+        "Flurl.Http": {
+          "target": "Package",
+          "version": "[2.4.2, )"
+        },
+        "Microsoft.EntityFrameworkCore.Design": {
+          "target": "Package",
+          "version": "[3.1.4, )"
+        },
+        "Microsoft.EntityFrameworkCore.Sqlite": {
+          "target": "Package",
+          "version": "[3.1.4, )"
+        },
+        "Quartz": {
+          "target": "Package",
+          "version": "[3.0.7, )"
+        },
+        "Selenium.WebDriver": {
+          "target": "Package",
+          "version": "[3.141.0, )"
+        },
+        "Selenium.WebDriver.ChromeDriver": {
+          "target": "Package",
+          "version": "[81.0.4044.13800, )"
+        },
+        "System.Drawing.Common": {
+          "target": "Package",
+          "version": "[4.7.0, )"
+        },
+        "runtime.osx.10.10-x64.CoreCompat.System.Drawing": {
+          "target": "Package",
+          "version": "[5.8.64, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.AspNetCore.App": {
+          "privateAssets": "none"
+        },
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+    }
+  }
+}
