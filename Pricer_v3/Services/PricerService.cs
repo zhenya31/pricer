@@ -70,7 +70,7 @@ namespace Pricer_v3
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Error with detector API");
+                    Console.WriteLine($"Error with detector API: {e.Message}");
                     return new PricerResponse() { Error = "Error with detector API" };
                 }
 
