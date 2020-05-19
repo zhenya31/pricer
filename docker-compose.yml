@@ -5,6 +5,8 @@ services:
     ports:
       - "8080:80"
     restart: on-failure
+    environment:
+      - ASPNETCORE_URLS=http://*:8080
   flask:
     build: Pricer_NN/
     ports:

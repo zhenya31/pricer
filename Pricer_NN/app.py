@@ -41,4 +41,4 @@ def detector():
 
 
 if __name__ == '__main__':
-    app.run(host="flask", port="5050", debug=True)
+    app.run(host="flask", port="0.0.0.0", debug=True)
