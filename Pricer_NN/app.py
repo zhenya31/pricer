@@ -16,6 +16,9 @@ def readb64(uri):
    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
    return img
 
+@app.route('/', methods=['GET'])
+def home():
+    return "1";
 
 @app.route('/detector', methods=['POST'])
 def detector():
