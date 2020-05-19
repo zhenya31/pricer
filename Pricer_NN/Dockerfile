@@ -8,6 +8,4 @@ COPY . /flask-app/
 RUN apt-get update; apt-get install tesseract-ocr -y
 RUN pip install -r requirements.txt
 
-EXPOSE 5050
-
 CMD ["python", "app.py"]
