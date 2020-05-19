@@ -56,6 +56,7 @@ namespace Pricer_v3
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("Browser error" );
                     return new PricerResponse() { Error = "Browser error" };
                 }
 
@@ -69,6 +70,7 @@ namespace Pricer_v3
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine("Error with detector API");
                     return new PricerResponse() { Error = "Error with detector API" };
                 }
 
