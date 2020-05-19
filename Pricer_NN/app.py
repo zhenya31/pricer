@@ -11,14 +11,12 @@ import price_detector as nn
 #os.environ['KMP_DUPLICATE_LIB_OK']='True'
 app = Flask(__name__)
 
+
 def readb64(uri):
    nparr = np.fromstring(base64.b64decode(uri), np.uint8)
    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
    return img
 
-@app.route('/', methods=['GET'])
-def home():
-    return "1";
 
 @app.route('/detector', methods=['POST'])
 def detector():
@@ -41,4 +39,4 @@ def detector():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="5050", debug=True)
+    app.run(host="flask", port="5050", debug=True)
