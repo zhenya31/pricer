@@ -68,7 +68,8 @@ namespace Pricer_v3
                         .PostJsonAsync(new {image = base64Screenshot})
                         .ReceiveJson<DetectorResponse>();
                     
-                    Console.WriteLine(string.Join(" ",response.Texts));
+                    Console.WriteLine(string.Join(", ",response.Texts));
+                    Console.WriteLine($"Error: {response.Error}");
                 }
                 catch (Exception e)
                 {
