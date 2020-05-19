@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Flurl.Http;
 using OpenQA.Selenium;
@@ -23,6 +24,7 @@ namespace Pricer_v3
         const string space = @"(\s|&nbsp;|&ensp;|&emsp;)";
         const string dots = @"[\.\,'\-]";
         const string lastsymbol = @"(?!(\d|"+dots+"))";
+        const string firstsymbol = @"(?<!(\d|\.\,))";
 
             
         const string from1to3 = @"{1,3}";
@@ -52,6 +54,8 @@ namespace Pricer_v3
                 {
                     driver.Manage().Window.Size = new Size(1280, 2000);
                     driver.Navigate().GoToUrl(url);
+                    driver.ExecuteScript("window.stop();");
+                    Thread.Sleep(2500);
                     base64Screenshot = driver.GetScreenshot().AsBase64EncodedString;
                 }
                 catch (Exception)
@@ -69,7 +73,6 @@ namespace Pricer_v3
                         .ReceiveJson<DetectorResponse>();
                     
                     Console.WriteLine(string.Join(", ",response.Texts));
-                    Console.WriteLine($"Error: {response.Error}");
                 }
                 catch (Exception e)
                 {
@@ -98,6 +101,7 @@ namespace Pricer_v3
             IWebElement theElement = (IWebElement)js
                 .ExecuteScript($"return document.elementFromPoint({x}, {y});");
             string html = theElement.GetAttribute("outerHTML");
+            Console.WriteLine(html);
             return ParsePrice(html, response.Texts);
         }
 
@@ -106,6 +110,7 @@ namespace Pricer_v3
             PriceMatches mathces = RegSearch(html);
             for (int i = 0; i < mathces.StrValues.Count(); i++)
             {
+                Console.WriteLine(mathces.StrValues[i]);
                 foreach (var variant in variants)
                 {
                     if (mathces.StrValues[i].IndexOf(variant) != -1)
@@ -132,7 +137,7 @@ namespace Pricer_v3
             string otherDigits = $"({digits}{only3}{space}?)*";
             string cents = $"({space}?{dots}{space}?{digits}{from1to2})";
 
-            Regex regex = new Regex($"({firstDigits}{otherDigits}{cents}?){lastsymbol}");
+            Regex regex = new Regex($"{firstsymbol}({firstDigits}{otherDigits}{cents}?){lastsymbol}");
             return regex.Matches(html)
                 .Select(x=> Regex.Replace(x.Value, space, " "))
                 .ToList();
@@ -140,11 +145,11 @@ namespace Pricer_v3
         
         private List<string> SerachType2(string html)
         {
-            string firstDigits = $"({digits}{from1to3}(\\,))";
-            string otherDigits = $"({digits}{only3}(\\,))*";
+            string firstDigits = $"({digits}{from1to3})";
+            string otherDigits = $"((\\,){space}?{digits}{only3})+";
             string cents = $"({space}?{dots}{space}?{digits}{from1to2})";
 
-            Regex regex = new Regex($"({firstDigits}{otherDigits}{cents}?){lastsymbol}");
+            Regex regex = new Regex($"{firstsymbol}({firstDigits}{otherDigits}{cents}?){lastsymbol}");
             return regex.Matches(html)
                 .Select(x=> x.Value)
                 .ToList();
