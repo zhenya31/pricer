@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace Pricer_v3
@@ -28,12 +29,16 @@ namespace Pricer_v3
                     CheckPrice(item);
                 }
             } );
-
         }
 
         private async void CheckPrice(MonitorItem item)
         {
+            Console.WriteLine($"Запущен мониторинг: {item.Email}, {item.LastPrice}");
+            Console.WriteLine(item.Url);
             PricerResponse result = await _pricerService.GetPrice(item.Url);
+            Console.WriteLine($"Для: {item.Email}, {item.LastPrice}");
+            Console.WriteLine(item.Url);
+            Console.WriteLine($"Цена стала: {result.Price}");
             if (result.Error != null)
             {
                 _monitorItemService.Delete(item.Id);
