@@ -18,6 +18,7 @@ namespace Pricer_v3.Schedule
         {
             using (var scope = serviceScopeFactory.CreateScope())
             {
+                Console.WriteLine("Monitoring started...");
                 var dailyService = scope.ServiceProvider.GetService<IDailyService>();
 
                 return dailyService.CheckPrices();
