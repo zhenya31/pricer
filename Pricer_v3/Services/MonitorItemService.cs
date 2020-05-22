@@ -7,7 +7,7 @@ namespace Pricer_v3
 {
     public interface IMonitorItemService
     {
-        (IEnumerable<MonitorItem> Items, string Error) GetAll();
+        IEnumerable<MonitorItem> GetAll();
         MonitorItem Get(int id);
         void Delete(int id);
         void UpdatePrice(int id, double price);
@@ -27,9 +27,9 @@ namespace Pricer_v3
         {
             return _context.MonitorItems.Find(id);
         }
-        public (IEnumerable<MonitorItem> Items, string Error) GetAll()
+        public IEnumerable<MonitorItem> GetAll()
         {
-            return (_context.MonitorItems.ToList(), "er");
+            return _context.MonitorItems.ToList();
         }
 
         public void Delete(int id)

@@ -14,14 +14,20 @@ namespace Pricer_v3.Schedule
             this.serviceScopeFactory = serviceScopeFactory;
         }
         
-        public Task Execute(IJobExecutionContext context)
+        async public Task Execute(IJobExecutionContext context)
         {
             using (var scope = serviceScopeFactory.CreateScope())
             {
                 Console.WriteLine("Monitoring started...");
-                var dailyService = scope.ServiceProvider.GetService<IDailyService>();
-
-                return dailyService.CheckPrices();
+                try
+                {
+                    var dailyService = scope.ServiceProvider.GetService<IDailyService>();
+                    await dailyService.CheckPrices();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }

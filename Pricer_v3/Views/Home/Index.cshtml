@@ -30,8 +30,8 @@
             <input v-model="email" type="text" class="form-control" aria-describedby="addon-wrapping" style="max-width: 250px; margin-right: 18px">
             <button type="button" class="btn btn-primary" v-on:click="submit" :disabled="loading">Начать мониторинг</button>
         </div>
-        <div class="alert alert-info" role="alert" v-if="info != ''" style="margin-top: 10px;">
-          {{ info }}<span id="wait" v-if="loading">.</span>
+        <div class="alert alert-info" role="alert" :style="{display: info != '' ? 'block' : 'none' }" style="margin-top: 10px;">
+          {{ info }}<span id="wait" :style="{display: loading ? 'inline' : 'none' }">.</span>
         </div>
     </div>
 </div>
@@ -71,7 +71,8 @@ var app = new Vue({
             this.loading = true;
             axios.get('/api/pricer', {
                 params: {
-                  url: this.url
+                  url: this.url,
+                  email: this.email
                 }
               })
               .then(function (response) {

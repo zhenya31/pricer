@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Pricer_v3
@@ -20,25 +21,30 @@ namespace Pricer_v3
             _monitorItemService = monitorItemService;
         }
 
-        async public Task CheckPrices()
+        public async Task CheckPrices()
         {
-            await Task.Run( () => {
-                (var items, var error) = _monitorItemService.GetAll();
+            try
+            {
+                var items = _monitorItemService.GetAll();
                 foreach (var item in items)
-                {
-                    CheckPrice(item);
+                { 
+                    await CheckPrice(item);
                 }
-            } );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        private async void CheckPrice(MonitorItem item)
+        private async Task CheckPrice(MonitorItem item)
         {
-            Console.WriteLine($"Запущен мониторинг: {item.Email}, {item.LastPrice}");
-            Console.WriteLine(item.Url);
+            //Console.WriteLine($"Запущен мониторинг: {item.Email}, {item.LastPrice}");
+            //Console.WriteLine(item.Url);
             PricerResponse result = await _pricerService.GetPrice(item.Url);
-            Console.WriteLine($"Для: {item.Email}, {item.LastPrice}");
-            Console.WriteLine(item.Url);
-            Console.WriteLine($"Цена стала: {result.Price}");
+            //Console.WriteLine($"Для: {item.Email}, {item.LastPrice}");
+            //Console.WriteLine(item.Url);
+            //Console.WriteLine($"Цена стала: {result.Price}");
             if (result.Error != null)
             {
                 _monitorItemService.Delete(item.Id);

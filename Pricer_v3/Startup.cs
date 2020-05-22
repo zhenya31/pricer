@@ -32,8 +32,6 @@ namespace Pricer_v3
             services.AddMvc();
             services.AddAuthorization();
             services.AddControllers();
-            services.AddDbContext<MonitorItemDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IPricerService, PricerService>();
             services.AddTransient<IMonitoringService, MonitoringService>();
@@ -41,7 +39,11 @@ namespace Pricer_v3
             
             services.AddTransient<JobFactory>();
             services.AddScoped<DataJob>();
-            services.AddScoped<DailyService>();
+            services.AddScoped<IDailyService,DailyService>();
+            services.AddScoped<IEmailService,EmailService>();
+            
+            services.AddDbContext<MonitorItemDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

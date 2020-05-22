@@ -21,7 +21,7 @@ namespace Pricer_v3.Schedule
                 .StartNow()
                 .WithSimpleSchedule(x => x
               //      .WithIntervalInHours(24)
-                    .WithIntervalInMinutes(5)
+                    .WithIntervalInMinutes(1)
                     .RepeatForever())
                     .Build();
 

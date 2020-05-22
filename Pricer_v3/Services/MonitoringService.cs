@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace Pricer_v3
@@ -22,8 +23,12 @@ namespace Pricer_v3
             PricerResponse response = await _pricerService.GetPrice(url);
             if (response.Error != null || response.Price == null)
                 return response;
-
+            Console.WriteLine(email);
             _monitorItemService.Create(email, url, (double)response.Price);
+            foreach (var item in _monitorItemService.GetAll())
+            {
+                Console.WriteLine(item.Url);
+            }
             return response;
         }
     }
