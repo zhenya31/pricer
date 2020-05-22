@@ -17,11 +17,9 @@ namespace Pricer_v3.Schedule
             IJobDetail jobDetail = JobBuilder.Create<DataJob>().Build();
             ITrigger trigger = TriggerBuilder.Create()
                 .WithIdentity("DailyTrigger", "default")
-                //.StartAt(new DateTimeOffset(DateTime.Now.AddDays(1)))
-                .StartNow()
+                .StartAt(new DateTimeOffset(DateTime.Now.AddDays(1)))
                 .WithSimpleSchedule(x => x
-              //      .WithIntervalInHours(24)
-                    .WithIntervalInMinutes(1)
+                    .WithIntervalInHours(24)
                     .RepeatForever())
                     .Build();
 

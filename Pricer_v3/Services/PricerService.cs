@@ -71,8 +71,6 @@ namespace Pricer_v3
                         .WithTimeout(60)
                         .PostJsonAsync(new {image = base64Screenshot})
                         .ReceiveJson<DetectorResponse>();
-                    
-                    Console.WriteLine(string.Join(", ",response.Texts));
                 }
                 catch (Exception e)
                 {
@@ -101,7 +99,6 @@ namespace Pricer_v3
             IWebElement theElement = (IWebElement)js
                 .ExecuteScript($"return document.elementFromPoint({x}, {y});");
             string html = theElement.GetAttribute("outerHTML");
-            Console.WriteLine(html);
             return ParsePrice(html, response.Texts);
         }
 
@@ -110,7 +107,6 @@ namespace Pricer_v3
             PriceMatches mathces = RegSearch(html);
             for (int i = 0; i < mathces.StrValues.Count(); i++)
             {
-                Console.WriteLine(mathces.StrValues[i]);
                 foreach (var variant in variants)
                 {
                     if (mathces.StrValues[i].IndexOf(variant) != -1)
