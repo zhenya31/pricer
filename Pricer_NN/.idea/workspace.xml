@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc2b195-c583-4c02-869d-d52d002f554e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Dockerfile000" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Pricer_NN.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshot.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +100,8 @@
       <workItem from="1589306999248" duration="3726000" />
       <workItem from="1589317125834" duration="441000" />
       <workItem from="1589613486055" duration="409000" />
-      <workItem from="1589843346422" duration="361000" />
+      <workItem from="1589843346422" duration="2698000" />
+      <workItem from="1590331917701" duration="326000" />
     </task>
     <servers />
   </component>
@@ -141,10 +133,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1589306942460" />
-    <state x="374" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1589843345593">
+    <state x="374" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1590331917768">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="374" y="277" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1589843345593" />
+    <state x="374" y="277" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1590331917768" />
     <state x="374" y="274" key="com.intellij.ide.util.TipDialog/0.23.1440.797@0.23.1440.797" timestamp="1589306309582" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
