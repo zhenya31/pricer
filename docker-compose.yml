@@ -10,6 +10,9 @@ services:
     ports:
       - "5050:5050"
     restart: on-failure
+    environment:
+      - PYTHONUNBUFFERED=1
+
   chrome:
     image: "selenium/standalone-chrome"
     ports:

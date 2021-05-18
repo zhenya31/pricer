@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pricer_v3.Data;
 
-namespace Pricer_v3.Data.Migrations
+namespace Pricer_v3.Migrations
 {
     [DbContext(typeof(MonitorItemDbContext))]
-    [Migration("20200515113122_Initial")]
-    partial class Initial
+    [Migration("20210502123644_InitMonitor")]
+    partial class InitMonitor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,23 @@ namespace Pricer_v3.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
+                    b.Property<double>("FirstPrice")
+                        .HasColumnType("REAL");
+
                     b.Property<double>("LastPrice")
                         .HasColumnType("REAL");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Site")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

@@ -8,30 +8,34 @@ import base64
 from flask import request, abort, jsonify
 import price_detector as nn
 
-#os.environ['KMP_DUPLICATE_LIB_OK']='True'
+# os.environ['KMP_DUPLICATE_LIB_OK']='True'
 app = Flask(__name__)
 
 
 def readb64(uri):
-   nparr = np.fromstring(base64.b64decode(uri), np.uint8)
-   img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-   return img
+    # nparr = np.fromstring(base64.b64decode(uri), np.uint8)
+    nparr = np.frombuffer(base64.b64decode(uri), np.uint8)
+
+    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    return img
 
 
-@app.route('/detector', methods=['POST'])
+@app.route('/detector', methods=['POST', 'GET'])
 def detector():
     try:
-        if not request.json or not 'image' in request.json:
+        if not request.json or 'image' not in request.json:
             abort(400)
 
         image = readb64(request.json['image'])
-        response = {}
+        response = dict()
         response['box'] = nn.get_box(nn.to_tensor(image))
+        print(response['box'])
         response['texts'] = ocr.read_price(image, response['box'])
+        print(response['texts'])
         response['error'] = None
         return jsonify(response)
     except Exception as ex:
-        response = {}
+        response = dict()
         response['box'] = None
         response['texts'] = None
         response['error'] = str(ex)

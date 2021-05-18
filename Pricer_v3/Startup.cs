@@ -36,6 +36,8 @@ namespace Pricer_v3
             services.AddScoped<IPricerService, PricerService>();
             services.AddTransient<IMonitoringService, MonitoringService>();
             services.AddTransient<IMonitorItemService, MonitorItemService>();
+            services.AddTransient<IUserService, UserService>();
+
             
             services.AddTransient<JobFactory>();
             services.AddScoped<DataJob>();

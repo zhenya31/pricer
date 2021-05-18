@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc2b195-c583-4c02-869d-d52d002f554e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Pricer_v3/Controllers/UserController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pricer_v3/Data/Migrations/20210502090937_AddFields.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pricer_v3/Data/Migrations/20210502090937_AddFields.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pricer_v3/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/price_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price_ocr.py" beforeDir="false" afterPath="$PROJECT_DIR$/price_ocr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/Data/Migrations/MonitorItemDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/Data/Migrations/MonitorItemDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/Models/MonitorItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/Models/MonitorItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/Services/PricerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/Services/PricerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/bin/Debug/netcoreapp3.1/Pricer_v3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Pricer_v3.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Pricer_v3/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +125,10 @@
       <workItem from="1589613486055" duration="409000" />
       <workItem from="1589843346422" duration="2698000" />
       <workItem from="1590331917701" duration="326000" />
+      <workItem from="1597424113627" duration="287000" />
+      <workItem from="1619806328640" duration="960000" />
+      <workItem from="1619892151439" duration="5197000" />
+      <workItem from="1619899715423" duration="2711000" />
     </task>
     <servers />
   </component>
@@ -109,37 +136,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="507" y="212" key="FileChooserDialogImpl" timestamp="1589231147978">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="199" key="GridCell.Tab.0.bottom" timestamp="1619899590646">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
-    <state x="507" y="212" key="FileChooserDialogImpl/0.0.1440.900@0.0.1440.900" timestamp="1589231147978" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1589316049452">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="199" key="GridCell.Tab.0.bottom/0.25.1440.791@0.25.1440.791" timestamp="1619899590646" />
+    <state width="1398" height="199" key="GridCell.Tab.0.center" timestamp="1619899590646">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589316049452" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1589316049451">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="199" key="GridCell.Tab.0.center/0.25.1440.791@0.25.1440.791" timestamp="1619899590646" />
+    <state width="1398" height="199" key="GridCell.Tab.0.left" timestamp="1619899590646">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589316049451" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1589316049450">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="199" key="GridCell.Tab.0.left/0.25.1440.791@0.25.1440.791" timestamp="1619899590646" />
+    <state width="1398" height="199" key="GridCell.Tab.0.right" timestamp="1619899590646">
+      <screen x="0" y="25" width="1440" height="791" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589316049450" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1589316049452">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="199" key="GridCell.Tab.0.right/0.25.1440.791@0.25.1440.791" timestamp="1619899590646" />
+    <state x="397" y="250" key="com.intellij.ide.util.TipDialog" timestamp="1619899725182">
+      <screen x="0" y="25" width="1440" height="790" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589316049452" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1589306942460">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1589306942460" />
-    <state x="374" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1590331917768">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="374" y="277" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1590331917768" />
-    <state x="374" y="274" key="com.intellij.ide.util.TipDialog/0.23.1440.797@0.23.1440.797" timestamp="1589306309582" />
+    <state x="397" y="250" key="com.intellij.ide.util.TipDialog/0.25.1440.790@0.25.1440.790" timestamp="1619899725182" />
+    <state x="397" y="251" key="com.intellij.ide.util.TipDialog/0.25.1440.794@0.25.1440.794" timestamp="1619892151336" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Pricer_NN$Pricer_NN.coverage" NAME="Pricer_NN Coverage Results" MODIFIED="1589309566226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pricer_NN$Pricer_NN.coverage" NAME="Pricer_NN Coverage Results" MODIFIED="1619897727016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

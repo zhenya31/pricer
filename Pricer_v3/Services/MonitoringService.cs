@@ -5,7 +5,7 @@ namespace Pricer_v3
 {
     public interface IMonitoringService
     {
-        public Task<PricerResponse> StartMonitoring(string email, string url);
+        public Task<PricerResponse> StartMonitoring(int userId, string url);
     }
     public class MonitoringService : IMonitoringService
     {
@@ -18,13 +18,13 @@ namespace Pricer_v3
             _monitorItemService = monitorItemService;
         }
 
-        public async Task<PricerResponse> StartMonitoring(string email, string url)
+        public async Task<PricerResponse> StartMonitoring(int userId, string url)
         {
             PricerResponse response = await _pricerService.GetPrice(url);
             if (response.Error != null || response.Price == null)
                 return response;
             
-            _monitorItemService.Create(email, url, (double)response.Price);
+            _monitorItemService.Create(userId, url, response.ImageUrl, (double)response.Price, response.Title, response.Site);
 
             return response;
         }

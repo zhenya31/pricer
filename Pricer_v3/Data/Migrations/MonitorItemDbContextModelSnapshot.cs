@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pricer_v3.Data;
 
-namespace Pricer_v3.Data.Migrations
+namespace Pricer_v3.Migrations
 {
     [DbContext(typeof(MonitorItemDbContext))]
     partial class MonitorItemDbContextModelSnapshot : ModelSnapshot
@@ -24,15 +24,44 @@ namespace Pricer_v3.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
+                    b.Property<double>("FirstPrice")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<double>("LastPrice")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Site")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("MonitorItems");
+                });
+
+            modelBuilder.Entity("Pricer_v3.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MessageToken")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

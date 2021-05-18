@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Pricer_v3.Data.Migrations
+namespace Pricer_v3.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitMonitor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,11 @@ namespace Pricer_v3.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Url = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
+                    Site = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
+                    FirstPrice = table.Column<double>(nullable: false),
                     LastPrice = table.Column<double>(nullable: false)
                 },
                 constraints: table =>

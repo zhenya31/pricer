@@ -23,6 +23,8 @@ def init_model():
     return model
 
 model = init_model()
+print('Модель скачана')
+
 
 def to_tensor(image):
     if image.shape[2] == 4:  # убираем альфа-канал
@@ -36,7 +38,8 @@ def get_box(tensor):
     if len(outputs[0]['boxes']) == 0:
         return [0, 0, 0, 0]
     box = outputs[0]['boxes'][0]
-    box = torch.tensor(torch.round(box), dtype=torch.int16)
+    box = torch.as_tensor(torch.round(box), dtype=torch.int16)
     box = box.tolist()
+    print(box)
     return box
 

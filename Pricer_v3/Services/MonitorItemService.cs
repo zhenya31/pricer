@@ -8,10 +8,12 @@ namespace Pricer_v3
     public interface IMonitorItemService
     {
         IEnumerable<MonitorItem> GetAll();
+        IEnumerable<MonitorItem> GetForUser(int userId);
         MonitorItem Get(int id);
         void Delete(int id);
         void UpdatePrice(int id, double price);
         void Create(string email, string url, double price);
+        void Create(int userId, string url, string image, double price, string name, string site);
     }
     
     public class MonitorItemService : IMonitorItemService
@@ -21,6 +23,11 @@ namespace Pricer_v3
         public MonitorItemService(MonitorItemDbContext context)
         {
             this._context = context;
+        }
+
+        public IEnumerable<MonitorItem> GetForUser(int userId)
+        {
+            return _context.MonitorItems.Where(x=> x.UserId == userId).ToList();
         }
 
         public MonitorItem Get(int id)
@@ -49,6 +56,22 @@ namespace Pricer_v3
         public void Create(string email, string url, double price)
         {
             var item = new MonitorItem() { Email = email, Url = url, LastPrice = price };
+            _context.Add(item);
+            _context.SaveChanges();
+        }
+
+        public void Create(int userId, string url, string image, double price, string name, string site)
+        {
+            var item = new MonitorItem()
+            {
+                UserId = userId, 
+                Url = url,
+                Name = name,
+                LastPrice = price,
+                FirstPrice = price,
+                Site = site,
+                ImageUrl = image,
+            };
             _context.Add(item);
             _context.SaveChanges();
         }

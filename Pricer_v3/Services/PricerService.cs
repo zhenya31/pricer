@@ -42,7 +42,7 @@ namespace Pricer_v3
         {
             options = new ChromeOptions();
             options.AddArgument("--enable-popup-blocking");
-            options.AddArgument("--headless");
+            //options.AddArgument("--headless");
         }
 
         public async Task<PricerResponse> GetPrice(string url)
@@ -71,18 +71,31 @@ namespace Pricer_v3
                         .WithTimeout(60)
                         .PostJsonAsync(new {image = base64Screenshot})
                         .ReceiveJson<DetectorResponse>();
+                    //Console.WriteLine(base64Screenshot);
+                    Console.WriteLine(response.Error);
+                    Console.WriteLine(response.Box[0]);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine($"Error with detector API: {e.Message}");
                     return new PricerResponse() { Error = "Error with detector API" };
                 }
-
+                
+                
                 if (response.Error != null)
                     return new PricerResponse() { Error = "Can't detect price on page" };
                 try
                 {
-                    return new PricerResponse() { Price = FindPriceInHtml(driver, response) };
+                    string site = GetSiteName(driver);
+                    string image = GetImageUrl(driver);
+                    
+                    return new PricerResponse()
+                    {
+                        Price = FindPriceInHtml(driver, response),
+                        Title = driver.Title,
+                        Site = site,
+                        ImageUrl = image,
+                    };
                 }
                 catch (Exception e)
                 {
@@ -99,6 +112,9 @@ namespace Pricer_v3
             IWebElement theElement = (IWebElement)js
                 .ExecuteScript($"return document.elementFromPoint({x}, {y});");
             string html = theElement.GetAttribute("outerHTML");
+            Console.WriteLine(theElement.TagName);
+            
+            Console.WriteLine(html);
             return ParsePrice(html, response.Texts);
         }
 
@@ -170,6 +186,23 @@ namespace Pricer_v3
                     mathces.NumValues.Add(-1);
                 }
             }
+        }
+
+
+        private string GetImageUrl(IWebDriver driver)
+        {
+            var elements =  driver.FindElements(By.TagName("img"));
+            int maxSize = elements.Max(x => x.Size.Height * x.Size.Width);
+            var img = elements.First(x => x.Size.Height * x.Size.Width == maxSize);
+            Console.WriteLine(img.GetAttribute("src"));
+            return img.GetAttribute("src");
+        }
+        
+        private string GetSiteName(IWebDriver driver)
+        {
+            Uri myUri = new Uri(driver.Url);   
+            string site = myUri.Host;
+            return site.Replace("www.", "");
         }
     }
 }

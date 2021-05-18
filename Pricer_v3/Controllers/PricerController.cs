@@ -17,9 +17,9 @@ namespace Pricer_v3.Controllers
         }
 
         [HttpGet]
-        public async Task<PricerResponse> Get(string email, string url)
+        public async Task<PricerResponse> Get(int userId, string url)
         {
-            return await _monitoringService.StartMonitoring(email, url);
+            return await _monitoringService.StartMonitoring(userId, url);
         }
     }
 }
